@@ -21,11 +21,15 @@ system:
                     template: "eZDemoBundle:full:blog_post.html.twig"
                     match:
                         Identifier\ContentType: [blog_post]
-
                 frontpage:
                     template: "eZDemoBundle:full:landing_page.html.twig"
                     match:
                         Identifier\ContentType: "landing_page"
+                feedback_form:
+                    controller: "eZDemoBundle:FeedbackForm:showFeedbackForm"
+                    template: "eZDemoBundle:full:feedback_form.html.twig"
+                    match:
+                        Identifier\ContentType: "feedback_form"
 
             line:
                 blog_post:

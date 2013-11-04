@@ -1,0 +1,87 @@
+{% extends "eZDemoBundle::pagelayout.html.twig" %}
+
+{% block content %}
+
+    <section class="content-view-full">
+        <article class="class-feedback-form">
+
+            <div class="attribute-header">
+                <h1>{{ ez_render_field(content, 'name') }}</h1>
+            </div>
+
+            {# TODO {include name=Validation uri='design:content/collectedinfo_validation.tpl'#}
+            {#class='message-warning'#}
+            {#validation=$validation collection_attributes=$collection_attributes}#}
+
+            <div class="attribute-short">
+                {{ ez_render_field(content,'description') }}
+            </div>
+
+            {{ form_start(form) }}
+
+                <div class="warning">
+                    {{ form_errors(form) }}
+                </div>
+
+                <div class="row">
+                    <div class="span4">
+                        <div class="attribute-first-name">
+                            {{ form_label(form.firstName, 'First Name'|trans) }}
+                            {{ form_widget(form.firstName, {'attr': {'class': 'span4'}} ) }}
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="attribute-last-name">
+                            {{ form_label(form.lastName, 'Last Name'|trans) }}
+                            {{ form_widget(form.lastName, {'attr': {'class': 'span4'}} ) }}
+                       </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span8">
+                        <div class="attribute-email">
+                            {{ form_label(form.email, 'Email'|trans) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'span8'}} ) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span8">
+                        <div class="attribute-subject">
+                            {{ form_label(form.subject, 'Subject'|trans) }}
+                            {{ form_widget(form.subject, {'attr': {'class': 'span8'}} ) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span8">
+                        <div class="attribute-country">
+                            {{ form_label(form.country, 'Country'|trans) }}
+                            {{ form_widget(form.country ) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span8">
+                        <div class="attribute-message">
+                            {{ form_label(form.message, 'Subject'|trans) }}
+                            {{ form_widget(form.message, {'attr': {'class': 'span8', 'rows': '10'} } ) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-action">
+                    {{ form_widget( form.save, { 'label': "Send form"|trans, 'attr': {'class': 'btn btn-warning pull-right'} } ) }}
+                </div>
+            {{ form_end(form) }}
+
+        </article>
+    </section>
+
+    {{ dump(content, location) }}
+
+{% endblock %}
