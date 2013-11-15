@@ -4,11 +4,11 @@
         <body>
             <trans-unit id="1">
                 <source>feedback.max_size.255</source>
-                <target>This field cannot be longer than 255 characters length</target>
+                <target>This field cannot be longer than 255 characters length:</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>feedback.max_size.2000</source>
-                <target>This field cannot be longer than 2000 characters length</target>
+                <target>This field cannot be longer than 2000 characters length:</target>
             </trans-unit>
         </body>
     </file>

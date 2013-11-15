@@ -2808,6 +2808,12 @@ select[name="FromVersion"],
 select[name="ToVersion"] {
   width: 60px;
 }
+.form-errors li {
+  color: red;
+}
+.form-errors li:before {
+  content: none;
+}
 table {
   max-width: 100%;
   border-collapse: collapse;

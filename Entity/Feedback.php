@@ -17,7 +17,7 @@ class Feedback
 
     /**
      * @Assert\NotBlank()
-     * @Assert\Length( min = 1, max = 10, maxMessage ="feedback.max_size.255" )
+     * @Assert\Length( min = 1, max = 255, maxMessage ="feedback.max_size.255" )
      */
     public $firstName;
 
