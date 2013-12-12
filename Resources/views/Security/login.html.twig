@@ -1,0 +1,42 @@
+{% extends layout %}
+
+{% block content %}
+    {% block login_content %}
+    <div class="user-login">
+        <form action="{{ path( 'login_check' ) }}" method="post" name="loginform">
+            <div class="attribute-header">
+                <h1 class="long">{{ "Login"|trans }}</h1>
+            </div>
+
+            {% if error %}
+            <div class="warning">
+                <h2>{{ "Could not login"|trans }}</h2>
+                <ul>
+                    <li>{{ "A valid username and password is required to login."|trans }}</li>
+                </ul>
+            </div>
+            {% endif %}
+
+            {% block login_fields %}
+                <div class="block">
+                    <label for="id1">{{ "Username:"|trans }}</label><div class="labelbreak"></div>
+                    <input class="halfbox" type="text" size="10" name="_username" id="id1" value="{{ last_username }}" tabindex="1" />
+                </div>
+
+                <div class="block">
+                    <label for="id2">{{ "Password:"|trans }}</label><div class="labelbreak"></div>
+                    <input class="halfbox" type="password" size="10" name="_password" id="id2" value="" tabindex="1" />
+                </div>
+
+                <div class="buttonblock">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <input class="defaultbutton" type="submit" name="LoginButton" value="{{ "Login"|trans }}" tabindex="1" />
+                </div>
+
+                <p><a href="{{ path( 'ez_legacy', {'module_uri': 'user/forgotpassword'} ) }}">{{ "Forgot your password?"|trans }}</a></p>
+
+            {% endblock %}
+        </form>
+    </div>
+    {% endblock %}
+{% endblock %}
